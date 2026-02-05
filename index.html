@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Logic Scanner</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Logic Scanner</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Logic Scanner</h1>
-  <input type="file" id="file">
-  <button onclick="scan()">Scan</button>
-  <pre id="output"></pre>
 
-<script>
-function scan(){
-  document.getElementById("output").innerText =
-    "Backend se result aayega yahan";
-}
-</script>
+    <h1>🔥 Logic Scanner Tool</h1>
+    <p>Paste your code here:</p>
+
+    <textarea id="codeBox" placeholder="Write any code here..."></textarea>
+    <br><br>
+
+    <button onclick="scanLogic()">Scan Logic</button>
+
+    <h2>Output:</h2>
+    <div id="output"></div>
+
+    <script>
+        function scanLogic() {
+            let code = document.getElementById("codeBox").value;
+            let ifCount = (code.match(/if/g) || []).length;
+            let forCount = (code.match(/for/g) || []).length;
+            let whileCount = (code.match(/while/g) || []).length;
+
+            document.getElementById("output").innerHTML = 
+                "IF count: " + ifCount + "<br>" +
+                "FOR count: " + forCount + "<br>" +
+                "WHILE count: " + whileCount;
+        }
+    </script>
+
 </body>
 </html>
+
